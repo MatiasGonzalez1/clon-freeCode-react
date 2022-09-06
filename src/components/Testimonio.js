@@ -1,20 +1,19 @@
-import React from 'react';
+import React from 'react'; //desde el 2020 no es obligatorio para componentes sencillos
 import '../stylesheets/Testimonio.css'
 
-import Imagen from '../img/retrato-1.jpg'
-const Testimonio = () => {
+const Testimonio = (props) => {
   return (
    <div className='contenedor-testimonio'>
     <img 
     className='imagen-testimonio' 
-    src={Imagen}
-    alt='Primer retrato'/>
+    src={require(`../img//retrato-${props.img}.jpg`)}
+    alt={props.alt}/>
     <div className='contenedor-texto-testimonio'>
       <p className='nombre-testimonio'>
-        Carlos Aguirre
+       <strong>{props.nombre}</strong>  en {props.pais}
       </p>
-      <p className='cargo-testimonio'>Ingenieria de Software</p>
-      <p className='texto-testimonio'>Siempre he querido aprender JavaScript pero nunca tuve tiempo, ahora me dedico a la ingenieria a tiempo completo</p>
+      <p className='cargo-testimonio'>{props.cargo} en <strong>{props.empresa}</strong></p>
+      <p className='texto-testimonio'>"{props.testimonio}"</p>
     </div>
    </div>
   );
